@@ -66,10 +66,5 @@ public class Book {
     public void setShelf(long shelf) {
         Shelf = shelf;
     }
-
-
-
-
-
-
 }
+
