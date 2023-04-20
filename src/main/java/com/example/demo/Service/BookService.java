@@ -1,12 +1,9 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.Book;
+import com.example.demo.Repository.BookRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -14,42 +11,36 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BookService  {
 
 
-    private static final Map<Integer, Book> BOOK_REPOSITORY_MAP = new HashMap<>();  // Хранилище книг
+    private static final BookRepository BOOK_REPOSITORY = new BookRepository();  // Хранилище книг
 
-    // Переменная для генерации ID клиента
-    private static final AtomicInteger BOOK_ID_HOLDER = new AtomicInteger();
+
+    private static final AtomicInteger BOOK_ID_HOLDER = new AtomicInteger(); // Переменная для генерацииID книжки
 
 
     public void create(Book book) {
         final int bookId = BOOK_ID_HOLDER.incrementAndGet();
         book.setID(bookId);
-        BOOK_REPOSITORY_MAP.put(bookId, book);
+        BOOK_REPOSITORY.create(book);
     }
 
 
     public List<Book> readAll() {
-        return new ArrayList<>(BOOK_REPOSITORY_MAP.values());
+        return BOOK_REPOSITORY.readAll();
     }
 
 
     public Book read(int id) {
-        return BOOK_REPOSITORY_MAP.get(id);
+        return BOOK_REPOSITORY.read(id);
     }
 
 
     public boolean update(Book book, int id) {
-        if (BOOK_REPOSITORY_MAP.containsKey(id)) {
-            book.setID(id);
-            BOOK_REPOSITORY_MAP.put(id, book);
-            return true;
-        }
-
-        return false;
+        return BOOK_REPOSITORY.update(book, id);
     }
 
 
     public boolean delete(int id) {
-        return BOOK_REPOSITORY_MAP.remove(id) != null;
+        return BOOK_REPOSITORY.delete(id);
     }
 }
 

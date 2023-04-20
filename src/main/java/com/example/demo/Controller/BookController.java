@@ -4,7 +4,6 @@ import com.example.demo.Model.Book;
 import com.example.demo.Service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,6 @@ public class BookController {
 
 
     @PostMapping( "/createBook")             /// создание книжки
-    @Async
     public ResponseEntity<?> create(@RequestBody Book book) {
         bookService.create(book);
         return new ResponseEntity<>(HttpStatus.CREATED); //// статус, что все окей
@@ -37,8 +35,7 @@ public class BookController {
     }
 
     @GetMapping( "/getBooks")  /// получение всех книг
-    @Async
-    public ResponseEntity<List<Book>> read() {
+    public ResponseEntity<List<Book>> readAll() {
         final List<Book> books = bookService.readAll();
 
         return books != null && !books.isEmpty()
@@ -55,7 +52,7 @@ public class BookController {
                 : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 
-    @DeleteMapping("/clients/{id}")          // удаление
+    @DeleteMapping("/books/{id}")          // удаление
     public ResponseEntity<?> delete(@PathVariable(name = "id") int id) {
         final boolean deleted = bookService.delete(id);
 
