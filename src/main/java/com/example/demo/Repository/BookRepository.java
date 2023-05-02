@@ -45,7 +45,7 @@ public class BookRepository {
         try {
             this.MapToXml();
         } catch (JAXBException e){
-            System.out.println("Error:\n");
+            System.out.println("Error:\n" + e);
         }
     }
 
@@ -54,7 +54,7 @@ public class BookRepository {
             try{
                 this.XmlToMap();
             } catch (JAXBException e){
-                System.out.println("Error:\n");
+                System.out.println("Error:\n" + e);
             }
         }
         return BOOK_REPOSITORY_MAP.get(id);
@@ -65,7 +65,7 @@ public class BookRepository {
             try{
                 this.XmlToMap();
             } catch (JAXBException e){
-                System.out.println("Error:\n");
+                System.out.println("Error:\n" + e);
             }
         }
         return new ArrayList<>(BOOK_REPOSITORY_MAP.values());
@@ -78,7 +78,7 @@ public class BookRepository {
             try {
                 this.MapToXml();
             } catch (JAXBException e){
-                System.out.println("Error:\n");
+                System.out.println("Error:\n" + e);
                 return false;
             }
             return true;
@@ -92,7 +92,7 @@ public class BookRepository {
         try {
             this.MapToXml();
         } catch (JAXBException e){
-            System.out.println("Error:\n");
+            System.out.println("Error:\n" + e);
             return false;
         }
         return result;

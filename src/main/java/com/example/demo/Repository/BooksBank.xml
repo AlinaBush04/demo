@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<books>
+    <bookMap>
+        <entry>
+            <key>1</key>
+            <value>
+                <ID>1</ID>
+                <Name>Гарри Поттер 2</Name>
+                <Initials>Дж. К. Роулинг</Initials>
+                <Year>1998</Year>
+                <Publisher>Rosman</Publisher>
+                <Wardrobe>3</Wardrobe>
+                <Shelf>5</Shelf>
+            </value>
+        </entry>
+    </bookMap>
+</books>
