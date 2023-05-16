@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 import com.example.demo.Model.Book;
 import com.example.demo.Service.BookService;
+import com.example.demo.Service.IBookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Controller
 public class BookController {
-    private final BookService bookService;
+    private final IBookService bookService;
 
     public BookController(BookService bookService) {
         this.bookService = bookService;

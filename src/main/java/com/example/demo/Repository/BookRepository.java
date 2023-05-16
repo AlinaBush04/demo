@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class BookRepository {
+public class BookRepository implements IBookRepository {
 
     private static final Map<Integer, Book> BOOK_REPOSITORY_MAP = new HashMap<>();// Хранилище книг
 
@@ -39,7 +39,7 @@ public class BookRepository {
         BOOK_REPOSITORY_MAP.clear();
         BOOK_REPOSITORY_MAP.putAll(bookMap.getBookMap());
     }
-
+    @Override
     public void create(Book book) {
         BOOK_REPOSITORY_MAP.put((int) book.getID(), book);
         try {
@@ -48,7 +48,7 @@ public class BookRepository {
             System.out.println("Error:\n" + e);
         }
     }
-
+    @Override
     public Book read(int id) {
         if (BOOK_REPOSITORY_MAP.isEmpty()){
             try{
@@ -59,7 +59,7 @@ public class BookRepository {
         }
         return BOOK_REPOSITORY_MAP.get(id);
     }
-
+    @Override
     public List<Book> readAll() {
         if (BOOK_REPOSITORY_MAP.isEmpty()){
             try{
@@ -70,7 +70,7 @@ public class BookRepository {
         }
         return new ArrayList<>(BOOK_REPOSITORY_MAP.values());
     }
-
+    @Override
     public boolean update(Book book, int id) {
         if (BOOK_REPOSITORY_MAP.containsKey(id)) {
             book.setID(id);
@@ -86,7 +86,7 @@ public class BookRepository {
         return false;
     }
 
-
+    @Override
     public boolean delete(int id) {
         boolean result = BOOK_REPOSITORY_MAP.remove(id) != null;
         try {
