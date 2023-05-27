@@ -13,5 +13,29 @@
                 <Shelf>5</Shelf>
             </value>
         </entry>
+        <entry>
+            <key>2</key>
+            <value>
+                <ID>2</ID>
+                <Name>Гарри Поттер 3</Name>
+                <Initials>Дж. К. Роулинг</Initials>
+                <Year>2000</Year>
+                <Publisher>Rosman</Publisher>
+                <Wardrobe>4</Wardrobe>
+                <Shelf>5</Shelf>
+            </value>
+        </entry>
+        <entry>
+            <key>3</key>
+            <value>
+                <ID>3</ID>
+                <Name>Гарри Поттер 4</Name>
+                <Initials>Дж. К. Роулинг</Initials>
+                <Year>2010</Year>
+                <Publisher>Rosman</Publisher>
+                <Wardrobe>5</Wardrobe>
+                <Shelf>5</Shelf>
+            </value>
+        </entry>
     </bookMap>
 </books>
